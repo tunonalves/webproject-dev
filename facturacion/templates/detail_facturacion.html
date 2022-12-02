@@ -1,0 +1,22 @@
+{% extends "base.html" %} {% load static %} {% load crispy_forms_tags %} {%block content %}
+<title>DETALLE FACTURACION</title>
+<div class="container">
+  <div class="card-deck mt-3">
+    <div class="col-md-4">
+      <div class="card" style="width: 28rem; backgroun-color: grey">
+        <div class="card-body">
+          <h5 class="card-title"><p>Nº Factura : <i>{{facturacion.numero_factura}}</i></p></h5>
+          <p>Cliente : <i>{{facturacion.cuit_cliente}}</i></p>
+          <p>Empresa : <i>{{facturacion.cuit_empresa}}</i></p>
+          <p>Fecha: <i>{{facturacion.fecha}}</i></p>
+          <p>Importe: <i>{{facturacion.importe}}</i></p>
+          <p>Descripcion: <i>{{facturacion.descripcion}}</i></p>
+          <p style="text-align: center">
+            <a class="btn btn-outline-secondary" href="{% url 'facturacion' %}">REGRESAR</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

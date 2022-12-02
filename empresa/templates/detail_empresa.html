@@ -1,0 +1,22 @@
+{% extends "base.html" %} {% load static %} {% load crispy_forms_tags %} {%block content %}
+<title>DETALLE EMPRESA</title>
+<div class="container">
+  <div class="card-deck mt-3">
+    <div class="col-md-4">
+      <div class="card" style="width: 28rem; backgroun-color: grey">
+        <div class="card-body">
+          <h5 class="card-title">
+            <p>CUIT : <i>{{empresa.cuit}}</i></p>
+          </h5>
+          <p>NOMBRE : <i>{{empresa.nombre}}</i></p>
+          <p>DIRECCION : <i>{{empresa.direccion}}</i></p>
+          <p>TELEFONO: <i>{{empresa.telefono}}</i></p>
+          <p style="text-align: center">
+            <a class="btn btn-outline-secondary" href="{% url 'empresas' %}">REGRESAR</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+<title>EMPRESAS</title>
+<div class="container" style="text-align: center;">
+  <a href="{% url 'add_empresa' %}" class="btn btn-outline-secondary">NUEVA EMPRESA</a><br>
+</div>
+<div class="container">
+  <div class="card-deck mt-4">
+      {% for busines in object_list %}
+      <div class="col-md-4">
+          <div class="card" style="width: 22rem; backgroun-color: grey;">
+              <div class="card-body">
+                  <h5 style="text-align: center" class="card-title">{{busines}}</h5>
+                  <p style="text-align: center">
+                  <a href="{% url 'detail_empresa' busines.id  %}" class="btn btn-outline-secondary">DETALLE</a> 
+                  <a href="{% url 'update_empresa' busines.id  %}" class="btn btn-outline-secondary">EDITAR</a> 
+                  <a href="{% url 'delete_empresa' busines.id  %}" class="btn btn-outline-secondary">BORRAR</a>
+                  </p>
+              </div>
+          </div>
+      </div>
+      {% endfor %}
+  </div>
+</div>
+<br><br><br><br><br><br>
+<!--TABLA_DATOS-->
+<div class="container" style="width: 95%; margin: auto">
+  <table class="table table-hover table-responsive">
+    <thead class="thead-inverse">
+      <tr>
+        <th>CUIT</th>
+        <th>NOMBRE</th>
+        <th>DIRECCION</th>
+        <th>TELEFONO</th>
+        <th>EMAIL</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for BUSINESS in object_list %}
+      <tr>
+        <td scope="row">{{BUSINESS.cuit}}</td>
+        <td>{{BUSINESS.nombre}}</td>
+        <td>{{BUSINESS.direccion}}</td>
+        <td>{{BUSINESS.telefono}}</td>
+        <td>{{BUSINESS.email}}</td>
+        <!--
+        <td>|</td>
+        <td>
+          <a href="{% url 'detail_empresa' BUSINESS.id  %}" class="btn btn-outline-secondary">DETAIL</a><br>
+          <a href="{% url 'update_empresa' BUSINESS.id  %}" class="btn btn-outline-secondary">UPDATE</a><br>
+          <a href="{% url 'delete_empresa' BUSINESS.id  %}" class="btn btn-outline-secondary">DELETE</a><br>
+        </td>
+        -->
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

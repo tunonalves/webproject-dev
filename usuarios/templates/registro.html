@@ -1,0 +1,6 @@
+{% extends "base.html" %} {% load static %} {% load crispy_forms_tags %} {%block content %}
+<div style="width: 75%; margin: auto">
+  <form method="POST" action="">{% csrf_token %} {{form|crispy}}</form>
+  <button type="submit" class="btn btn-outline-secondary">Enviar</button>
+</div>
+{% endblock %}

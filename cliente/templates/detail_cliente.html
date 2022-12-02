@@ -1,0 +1,22 @@
+{% extends "base.html" %} {% load static %} {% load crispy_forms_tags %} {%block content %}
+<title>DETALLE CLIENTES</title>
+<div class="container">
+  <div class="card-deck mt-3">
+    <div class="col-md-4">
+      <div class="card" style="width: 28rem; backgroun-color: grey">
+        <div class="card-body">
+          <h5 class="card-title">
+            <p>CUIT : <i>{{cliente.cuit}}</i></p>
+          </h5>
+          <p>NOMBRE : <i>{{cliente.nombre}}</i></p>
+          <p>DIRECCION : <i>{{cliente.direccion}}</i></p>
+          <p>TELEFONO: <i>{{cliente.telefono}}</i></p>
+          <p style="text-align: center">
+            <a class="btn btn-outline-secondary" href="{% url 'cliente' %}">REGRESAR</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

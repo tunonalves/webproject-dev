@@ -1,0 +1,23 @@
+{% extends "base.html" %} {% load static %} {% load crispy_forms_tags %} {%block content %}
+<title>DETALLE ORDEN COMPRA</title>
+<div class="container">
+  <div class="card-deck mt-3">
+    <div class="col-md-4">
+      <div class="card" style="width: 28rem; backgroun-color: grey">
+        <div class="card-body">
+          <h5 class="card-title"><p>Nº Orden : <i>{{ordencompra.numero_factura}}</i></p></h5>
+          <p>Cliente : <i>{{ordencompra.cuit_cliente}}</i></p>
+          <p>Empresa : <i>{{ordencompra.cuit_empresa}}</i></p>
+          <p>Fecha Inicio: <i>{{ordencompra.fecha_inicio}}</i></p>
+          <p>Fecha Fin: <i>{{ordencompra.fecha_fin}}</i></p>
+          <p>Importe: <i>{{ordencompra.importe}}</i></p>
+          <p>Descripcion: <i>{{ordencompra.descripcion}}</i></p>
+          <p style="text-align: center">
+            <a class="btn btn-outline-secondary" href="{% url 'ordencompras' %}">REGRESAR</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

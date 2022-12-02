@@ -1,0 +1,62 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+<title>FACTURACION</title>
+<div class="container" style="text-align: center;">
+  <a href="{% url 'add_facturacion' %}" class="btn btn-outline-secondary">NUEVA FACTURA</a><br>
+</div>
+<div class="container">
+  <div class="card-deck mt-3">
+      {% for bills in object_list %}
+      <div class="col-md-4">
+          <div class="card" style="width: 22rem; backgroun-color: grey;">
+              <div class="card-body">
+                  <h4 style="text-align: center" class="card-title">{{bills.cuit_cliente.nombre}}</h4>
+                  <h6 style="text-align: center" class="card-title">{{bills.cuit_empresa.nombre}}</h6>
+                  <h6 style="text-align: center" class="card-title">Nº Factura: {{bills}}</h6>
+                  <p style="text-align: center">
+                  <a href="{% url 'detail_facturacion' bills.id  %}" class="btn btn-outline-secondary">DETALLE</a> 
+                  <a href="{% url 'update_facturacion' bills.id  %}" class="btn btn-outline-secondary">EDITAR</a> 
+                  <a href="{% url 'delete_facturacion' bills.id  %}" class="btn btn-outline-secondary">BORRAR</a>
+                  </p>
+              </div>
+          </div>
+      </div>
+      {% endfor %}
+  </div>
+</div>
+<br><br><br><br><br><br>
+<!--TABLA_DATOS-->
+<div class="container" style="width: 95%; margin: auto">
+  <table class="table table-hover table-responsive">
+    <thead class="thead-inverse">
+      <tr>
+        <th scope="col">Nº FACTURA</th>
+        <th scope="col">EMPRESA</th>
+        <th scope="col">CLIENTE</th>
+        <th scope="col">FECHA</th>
+        <th scope="col">IMPORTE</th>
+        <th scope="col">DESCRIPCION</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for bill in object_list %}
+      <tr>
+        <td scope="row">{{bill.numero_factura}}</td>
+        <td>{{bill.cuit_empresa}}</td>
+        <td>{{bill.cuit_cliente}}</td>
+        <td>{{bill.fecha}}</td>
+        <td>{{bill.importe}}</td>
+        <td>{{bill.descripcion}}</td>
+        <!--
+        <td>|</td>
+        <td>
+          <a href="" class="btn btn-outline-secondary">DETAIL</a><br>
+          <a href="" class="btn btn-outline-secondary">UPDATE</a><br>
+          <a href="" class="btn btn-outline-secondary">DELETE</a><br>
+        </td>
+        -->
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

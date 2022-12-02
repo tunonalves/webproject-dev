@@ -1,0 +1,10 @@
+{% extends "base.html" %} {% load static %} {% load crispy_forms_tags %} {% block content %}
+<title>ACTUALIZAR ENVIOS</title>
+<div style="width: 75%; margin: auto">
+    <form method="post">
+    {% csrf_token %} {{form|crispy}}
+    <input class="btn btn-outline-secondary"  type="submit" value="ENVIAR"/>
+    <a class="btn btn-outline-secondary" href="{% url 'envios' %}">CANCELAR</a>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <link
+      href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}"
+      rel="stylesheet"
+    />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i"
+      rel="stylesheet"
+    />-->
+    <link href="{% static 'css/gestion.css' %}" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav mx-auto">
+            <li
+              class="nav-item {% if request.path == '/home/' %}active{% endif %} px-lg-2"
+            >
+              <a class="btn btn-secondary btn-lg" href="{% url 'home' %}">HOME</a>
+            </li>
+            <li
+              class="nav-item {% if request.path == '/clientes/' %}active{% endif %} px-lg-2"
+            >
+              <a class="btn btn-secondary btn-lg" href="{% url 'cliente' %}">CLIENTES</a>
+            </li>
+            <li
+              class="nav-item {% if request.path == '/empresas/' %}active{% endif %} px-lg-2"
+            >
+              <a class="btn btn-secondary btn-lg" href="{% url 'empresas' %}">EMPRESAS</a>
+            </li>
+            <li
+              class="nav-item {% if request.path == '/facturacion/' %}active{% endif %} px-lg-2"
+            >
+              <a class="btn btn-secondary btn-lg" href="{% url 'facturacion' %}">FACTURACION</a>
+            </li>
+            <li
+              class="nav-item {% if request.path == '/ordencompras/' %}active{% endif %} px-lg-2"
+            >
+              <a class="btn btn-secondary btn-lg" href="{% url 'ordencompras' %}">ORDENES</a>
+            </li>
+            <li
+              class="nav-item {% if request.path == '/envios/' %}active{% endif %} px-lg-2"
+            >
+              <a class="btn btn-secondary btn-lg" href="{% url 'envios' %}">ENVIOS</a>
+            </li>
+            <li
+              class="nav-item {% if request.path == '/pagos/' %}active{% endif %} px-lg-2"
+            >
+              <a class="btn btn-secondary btn-lg" href="{% url 'pagos' %}">PAGOS</a>
+            </li>
+            <li
+              class="nav-item {% if request.path == '/usuarios/' %}active{% endif %} px-lg-2"
+            >
+              <a class="btn btn-secondary btn-lg" href="{% url 'usuarios' %}">USUARIOS</a>
+            </li>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <br>
+    {% block content %} {% endblock %}
+    <br>
+    <footer class="footer text-faded text-center py-5">
+      <div class="container">
+        <p class="m-0">
+          <a href="#" class="link">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+            </span>
+          </a>
+          <a href="#" class="link">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+            </span>
+          </a>
+          <a href="#" class="link">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+            </span>
+          </a>
+        </p>
+        <p class="m-0 mbt">
+          <a href="https://tunonalves.wixsite.com/federico" class="btn btn-outline-dark">ABOUT</a>
+        </p>
+        <p class="m-0 mbt1">&copy; Software CNA MULTIMEDIOS 2022</p>
+        <span style="color: black">{% now "DATETIME_FORMAT" %}</span>
+      </div>
+    </footer>
+    <div class="container" style="text-align: center">
+      <div class="container" style="width: 95%; margin: auto">
+        <img
+          src="{% static '/img/Pie-logos.jpg' %}"
+          class="img-fluid"
+          alt="Responsive image"
+        />
+      </div>
+    </div>
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <!--
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
+      integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
+      crossorigin="anonymous"
+    ></script>
+    -->
+  </body>
+</html>

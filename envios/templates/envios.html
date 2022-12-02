@@ -1,0 +1,60 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+<title>ENVIOS</title>
+<div class="container" style="text-align: center;">
+  <a href="{% url 'add_envio' %}" class="btn btn-outline-secondary">NUEVO ENVIO</a><br>
+</div>
+<div class="container">
+  <div class="card-deck mt-4">
+      {% for sends in object_list %}
+      <div class="col-md-4">
+          <div class="card" style="width: 22rem; backgroun-color: grey;">
+              <div class="card-body">
+                  <h4 style="text-align: center" class="card-title">Nº Factura:   {{sends.Numero_Factura}}</h4>
+                  <h6 style="text-align: center" class="card-title">{{sends}}</h6>
+                  <p style="text-align: center">
+                  <a href="{% url 'detail_envio' sends.id  %}" class="btn btn-outline-secondary">DETALLE</a> 
+                  <a href="{% url 'update_envio' sends.id  %}" class="btn btn-outline-secondary">EDITAR</a> 
+                  <a href="{% url 'delete_envio' sends.id  %}" class="btn btn-outline-secondary">BORRAR</a>
+                  </p>
+              </div>
+          </div>
+      </div>
+      {% endfor %}
+  </div>
+</div>
+<br><br><br><br><br><br>
+<!--TABLA_DATOS-->
+<div class="container" style="width: 95%; margin: auto">
+  <table class="table table-hover table-responsive">
+    <thead class="thead-inverse">
+      <tr>
+        <th>Nº FACTURA</th>
+        <th>Nº ORDEN COMPRA</th>
+        <th>FECHA ENVIO</th>
+        <th>FECHA RECEPCION</th>
+        <th>EMAIL</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for send in object_list %}
+      <tr>
+        <td scope="row">{{send.Numero_Factura}}</td>
+        <td>{{send.Numero_OC}}</td>
+        <td>{{send.Fecha_envio}}</td>
+        <td>{{send.Fecha_recepcion}}</td>
+        <td>{{send.Email_enviado}}</td>
+        <!--
+        <td>|</td>
+        <td>
+          <a href="" class="btn btn-outline-secondary">DETAIL</a><br>
+          <a href="" class="btn btn-outline-secondary">UPDATE</a><br>
+          <a href="" class="btn btn-outline-secondary">DELETE</a><br>
+        </td>
+        -->
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}

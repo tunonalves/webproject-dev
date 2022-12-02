@@ -1,0 +1,57 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+<title>PAGOS</title>
+<div class="container" style="text-align: center;">
+  <a href="{% url 'add_pagos' %}" class="btn btn-outline-secondary">NUEVO PAGO</a><br>
+</div>
+<div class="container">
+  <div class="card-deck mt-3">
+      {% for pays in object_list %}
+      <div class="col-md-4">
+          <div class="card" style="width: 22rem; backgroun-color: grey;">
+              <div class="card-body">
+                  <h4 style="text-align: center" class="card-title">{{pays.numero_factura.cuit_cliente}}</h4>
+                  <h6 style="text-align: center" class="card-title">Nº {{pays.numero_factura}}</h6>
+                  <h6 style="text-align: center" class="card-title">{{pays.fecha}}</h6>
+                  <h6 style="text-align: center" class="card-title">$ {{pays.importe}}</h6>
+                  <p style="text-align: center">
+                  <a href="{% url 'detail_pagos' pays.id  %}" class="btn btn-outline-secondary">DETALLE</a> 
+                  <a href="{% url 'update_pagos' pays.id  %}" class="btn btn-outline-secondary">EDITAR</a> 
+                  <a href="{% url 'delete_pagos' pays.id  %}" class="btn btn-outline-secondary">BORRAR</a>
+                  </p>
+              </div>
+          </div>
+      </div>
+      {% endfor %}
+  </div>
+</div>
+<br><br><br><br><br><br>
+<!--TABLA_DATOS-->
+<div class="container" style="width: 95%; margin: auto">
+  <table class="table table-hover table-responsive">
+    <thead class="thead-inverse">
+      <tr>
+        <th>Nº FACTURA</th>
+        <th>FECHA</th>
+        <th>IMPORTE</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for pay in object_list %}
+      <tr>
+        <td scope="row">{{pay.numero_factura}}</td>
+        <td>{{pay.fecha}}</td>
+        <td>{{pay.importe}}</td>
+        <!--
+        <td>|</td>
+        <td>
+          <a href="{% url 'detail_pagos' pay.id  %}" class="btn btn-outline-secondary">DETAIL</a><br>
+          <a href="{% url 'detail_pagos' pay.id  %}" class="btn btn-outline-secondary">UPDATE</a><br>
+          <a href="{% url 'detail_pagos' pay.id  %}" class="btn btn-outline-secondary">DELETE</a><br>
+        </td>
+        -->
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

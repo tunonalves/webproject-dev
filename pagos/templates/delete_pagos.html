@@ -1,0 +1,19 @@
+{% extends "base.html" %} {% load static %} {% load crispy_forms_tags %} {%block content %}
+<title>ELIMINAR PAGOS</title>
+<div class="container" style="text-align: center">
+  <div class="card-deck mt-3">
+    <div class="col-md-4">
+      <div class="card" style="width: 28rem; backgroun-color: grey">
+        <div class="card-body">
+          <form method="post">
+            {% csrf_token %}
+            <p>Deseas borrar la Factura: " {{object}} " ?</p>
+            <input type="submit" value="YES" class="btn btn-outline-secondary"/>
+            <a class="btn btn-outline-secondary" href="{% url 'pagos' %}">NO</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
